@@ -1,0 +1,84 @@
+{
+    "bsonType": "object",
+    "properties": {
+        "_id": {
+            "bsonType": "objectId"
+        },
+        "isComplete": {
+            "bsonType": "bool"
+        },
+        "summary": {
+            "bsonType": "string"
+        },
+        "owner_id": {
+            "bsonType": "string"
+        },
+        "name": {
+            "bsonType": "string"
+        },
+        "email": {
+            "bsonType": "string"
+        },
+        "periodOneCourse": {
+            "bsonType": "string"
+        },
+        "periodTwoCourse": {
+            "bsonType": "string"
+        },
+        "periodThreeCourse": {
+            "bsonType": "string"
+        },
+        "periodFourCourse": {
+            "bsonType": "string"
+        },
+        "periodFiveCourse": {
+            "bsonType": "string"
+        },
+        "periodSixCourse": {
+            "bsonType": "string"
+        },
+        "periodOneTeacher": {
+            "bsonType": "string"
+        },
+        "periodTwoTeacher": {
+            "bsonType": "string"
+        },
+        "periodThreeTeacher": {
+            "bsonType": "string"
+        },
+        "periodFourTeacher": {
+            "bsonType": "string"
+        },
+        "periodFiveTeacher": {
+            "bsonType": "string"
+        },
+        "periodSixTeacher": {
+            "bsonType": "string"
+        },
+        "scheduleUploaded": {
+            "bsonType": "string"
+        }
+    },
+    "required": [
+        "_id",
+        "isComplete",
+        "summary",
+        "owner_id",
+        "name",
+        "email",
+        "periodOneCourse",
+        "periodTwoCourse",
+        "periodThreeCourse",
+        "periodFourCourse",
+        "periodFiveCourse",
+        "periodSixCourse",
+        "periodOneTeacher",
+        "periodTwoTeacher",
+        "periodThreeTeacher",
+        "periodFourTeacher",
+        "periodFiveTeacher",
+        "periodSixTeacher",
+        "scheduleUploaded"
+    ],
+    "title": "user_info"
+}
