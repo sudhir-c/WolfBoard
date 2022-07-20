@@ -21,6 +21,10 @@ class TodoAppBar extends StatelessWidget with PreferredSizeWidget {
       Navigator.pushNamed(context, "/bug");
     }
 
+    void goToEditSchedule() {
+      Navigator.pushNamed(context, '/');
+    }
+
     return AppBar(
         title: const Text('WolfBoard'),
         automaticallyImplyLeading: false,
@@ -34,10 +38,14 @@ class TodoAppBar extends StatelessWidget with PreferredSizeWidget {
                 ),
                 //Text("Logout"),
                 IconButton(
-                  icon: const Icon(Icons.logout),
-                  tooltip: 'Log Out Icon',
-                  onPressed: logOut,
-                ),
+                    icon: const Icon(Icons.logout),
+                    tooltip: 'Log Out Icon',
+                    onPressed: logOut),
+                IconButton(
+                  icon: const Icon(Icons.draw),
+                  tooltip: 'Edit Schedule Icon',
+                  onPressed: goToEditSchedule,
+                )
               ]
             : null);
   }

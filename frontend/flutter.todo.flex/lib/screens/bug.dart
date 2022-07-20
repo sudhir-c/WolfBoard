@@ -34,7 +34,7 @@ class BugState extends State<Bug> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-                "Sorry for the inconvenience! Please let us know what went wrong",
+                "Sorry for the inconvenience! Please let us know what went wrong.",
                 textAlign: TextAlign.left,
                 style: TextStyle(
                     color: Color.fromARGB(255, 60, 0, 0), fontSize: 24)),

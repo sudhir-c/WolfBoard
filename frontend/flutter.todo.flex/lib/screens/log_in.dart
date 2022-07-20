@@ -147,7 +147,33 @@ class _LogInState extends State<LogIn> {
                         if (_logIn) {
                           _logInUser();
                         } else {
-                          _signUpUser();
+                          showDialog(
+                              context: context,
+                              builder: (context) {
+                                return AlertDialog(
+                                  contentPadding:
+                                      EdgeInsets.fromLTRB(24, 50, 24, 50),
+                                  title: Text(
+                                      "Are you sure? This info cannot be changed later."),
+                                  content: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      ElevatedButton(
+                                        child: Text("Yes"),
+                                        onPressed: () {
+                                          _signUpUser();
+                                        },
+                                      ),
+                                      Padding(padding: EdgeInsets.all(10)),
+                                      ElevatedButton(
+                                          onPressed: () {
+                                            Navigator.pop(context, true);
+                                          },
+                                          child: Text("No")),
+                                    ],
+                                  ),
+                                );
+                              });
                         }
                       },
                       child: Text(

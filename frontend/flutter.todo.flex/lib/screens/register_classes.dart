@@ -92,11 +92,15 @@ class RegisterClassesState extends State<RegisterClasses> {
                                         //database
                                         //*******************************************
                                         try {
-                                          realm
+                                          var toBeDeleted = realm
                                               ?.query<user_info>(
                                                   'owner_id == "${currentUser?.id}"')
                                               .single;
-                                        } on StateError {}
+                                          realm?.write(() {
+                                            realm.delete<user_info>(
+                                                toBeDeleted!);
+                                          });
+                                        } catch (e) {}
                                         realm?.write(() {
                                           final newSchedule = user_info(
                                               ObjectId(),
