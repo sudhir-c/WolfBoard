@@ -72,9 +72,35 @@ final List<String> STAFF = [
   "Samuel Lessard",
   "Natalie Macknight"
 ];
+
+final ButtonStyle NAVBUTTON = ButtonStyle(
+    backgroundColor: MaterialStateProperty.all(Color.fromARGB(255, 0, 0, 0)),
+    shadowColor: MaterialStateProperty.all(Color.fromARGB(255, 2, 116, 88)),
+    textStyle: MaterialStateProperty.all(
+        TextStyle(color: Color.fromARGB(255, 255, 255, 255), fontSize: 24)));
+
 final ButtonStyle DEFAULTBUTTON = ButtonStyle(
-    backgroundColor:
-        MaterialStateProperty.all(Color.fromARGB(255, 11, 184, 46)),
+    backgroundColor: MaterialStateProperty.all(Color.fromARGB(255, 2, 116, 88)),
     shadowColor: MaterialStateProperty.all(Color.fromARGB(255, 0, 0, 0)),
     textStyle: MaterialStateProperty.all(
         TextStyle(color: Color.fromARGB(255, 255, 255, 255), fontSize: 24)));
+final TextStyle HEADERTEXT = TextStyle(
+  fontSize: 28,
+  color: Colors.black,
+  fontWeight: FontWeight.bold,
+  fontStyle: FontStyle.italic,
+  fontFamily: 'Ubuntu',
+);
+
+Map<int, Color> THEMECOLOR = {
+  50: Color.fromRGBO(2, 116, 88, .1),
+  100: Color.fromRGBO(2, 116, 88, .2),
+  200: Color.fromRGBO(2, 116, 88, .3),
+  300: Color.fromRGBO(2, 116, 88, .4),
+  400: Color.fromRGBO(2, 116, 88, .5),
+  500: Color.fromRGBO(2, 116, 88, .6),
+  600: Color.fromRGBO(2, 116, 88, .7),
+  700: Color.fromRGBO(2, 116, 88, .8),
+  800: Color.fromRGBO(2, 116, 88, .9),
+  900: Color.fromRGBO(2, 116, 88, 1),
+};

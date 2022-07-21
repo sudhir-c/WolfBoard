@@ -32,9 +32,15 @@ class RegisterClassesState extends State<RegisterClasses> {
         appBar: TodoAppBar(),
         body: Center(child: Consumer<Realm?>(builder: (context, realm, child) {
           return Column(
-            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Text("Please enter your classes:"),
+              Padding(padding: EdgeInsets.all(8)),
+              Text(
+                "Please enter your classes:",
+                style: TextStyle(
+                    color: Color.fromARGB(255, 2, 116, 88),
+                    fontWeight: FontWeight.bold,
+                    fontSize: 30),
+              ),
               RowRegisterClasses(periodNumber: "1"),
               RowRegisterClasses(periodNumber: "2"),
               RowRegisterClasses(periodNumber: "3"),
@@ -86,49 +92,64 @@ class RegisterClassesState extends State<RegisterClasses> {
                                   children: [
                                     ElevatedButton(
                                       child: Text("Yes"),
+                                      style: NAVBUTTON,
                                       onPressed: () {
                                         // *EXTREMELY IMPORTANT*
                                         //This is where the user's data is sent to the
                                         //database
                                         //*******************************************
                                         try {
-                                          var toBeDeleted = realm
-                                              ?.query<user_info>(
-                                                  'owner_id == "${currentUser?.id}"')
-                                              .single;
+                                          try {
+                                            var toBeDeleted = realm
+                                                ?.query<user_info>(
+                                                    'owner_id == "${currentUser?.id}"')
+                                                .single;
+                                            realm?.write(() {
+                                              realm.delete<user_info>(
+                                                  toBeDeleted!);
+                                            });
+                                          } catch (e) {}
                                           realm?.write(() {
-                                            realm.delete<user_info>(
-                                                toBeDeleted!);
+                                            final newSchedule = user_info(
+                                                ObjectId(),
+                                                "no summary",
+                                                currentUser!.id,
+                                                name,
+                                                email,
+                                                periodOneCourse,
+                                                periodTwoCourse,
+                                                periodThreeCourse,
+                                                periodFourCourse,
+                                                periodFiveCourse,
+                                                periodSixCourse,
+                                                periodOneTeacher,
+                                                periodTwoTeacher,
+                                                periodThreeTeacher,
+                                                periodFourTeacher,
+                                                periodFiveTeacher,
+                                                periodSixTeacher,
+                                                "true");
+                                            realm.add<user_info>(newSchedule);
                                           });
-                                        } catch (e) {}
-                                        realm?.write(() {
-                                          final newSchedule = user_info(
-                                              ObjectId(),
-                                              "no summary",
-                                              currentUser!.id,
-                                              name,
-                                              email,
-                                              periodOneCourse,
-                                              periodTwoCourse,
-                                              periodThreeCourse,
-                                              periodFourCourse,
-                                              periodFiveCourse,
-                                              periodSixCourse,
-                                              periodOneTeacher,
-                                              periodTwoTeacher,
-                                              periodThreeTeacher,
-                                              periodFourTeacher,
-                                              periodFiveTeacher,
-                                              periodSixTeacher,
-                                              "true");
-                                          realm.add<user_info>(newSchedule);
-                                        });
-                                        Navigator.pushNamed(
-                                            context, '/period1');
+                                          Navigator.pushNamed(
+                                              context, '/period1');
+                                        } catch (e) {
+                                          () {
+                                            showDialog(
+                                                context: context,
+                                                builder: (context) {
+                                                  return AlertDialog(
+                                                    content: Text(
+                                                        "Sorry, no internet connection. Try again later."),
+                                                  );
+                                                });
+                                          };
+                                        }
                                       },
                                     ),
                                     Padding(padding: EdgeInsets.all(10)),
                                     ElevatedButton(
+                                        style: NAVBUTTON,
                                         onPressed: () {
                                           Navigator.pop(context, true);
                                         },

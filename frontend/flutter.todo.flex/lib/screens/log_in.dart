@@ -63,7 +63,41 @@ class _LogInState extends State<LogIn> {
         Navigator.pushNamed(context, '/login');
       } catch (err) {
         setState(() {
+          bool x = false;
           _errorMessage = err.toString();
+          switch (_errorMessage) {
+            case "RealmException: invalid username":
+              {
+                _errorMessage = "Invalid username.";
+                x = true;
+              }
+              break;
+            case "RealmException: invalid username/password":
+              {
+                _errorMessage = "Invalid username/password.";
+                x = true;
+              }
+              break;
+            case "RealmException: name already in use":
+              {
+                _errorMessage = "Email taken.";
+                x = true;
+              }
+              break;
+            case "RealmException: password must be between 6 and 128 characters":
+              {
+                _errorMessage =
+                    "Password must be between 6 and 128 characters.";
+                x = true;
+              }
+              break;
+          }
+          if (!x) {
+            _errorMessage =
+                "Error, please try again. Check your email, password, and name.";
+          }
+          //RealmException : invalid username
+          //RealmException : invalid username/password
         });
       }
     }
@@ -75,11 +109,24 @@ class _LogInState extends State<LogIn> {
         child: SingleChildScrollView(
           child: Column(
             children: [
+              Container(
+                  padding: const EdgeInsets.symmetric(vertical: 25),
+                  child: _errorMessage != null
+                      ? Text(_errorMessage!,
+                          style: const TextStyle(
+                              fontSize: 15,
+                              color: Color.fromARGB(255, 116, 10, 10),
+                              fontWeight: FontWeight.bold))
+                      : null),
               Padding(
                   padding: const EdgeInsets.symmetric(vertical: 15),
                   child: Text(
                     _logIn ? 'Log In' : 'Sign Up',
-                    style: const TextStyle(fontSize: 25),
+                    style: const TextStyle(
+                        fontSize: 25,
+                        fontStyle: FontStyle.italic,
+                        fontWeight: FontWeight.w800,
+                        color: Color.fromARGB(255, 2, 116, 88)),
                   )),
               Form(
                   child: Column(
@@ -140,7 +187,7 @@ class _LogInState extends State<LogIn> {
                     width: 250,
                     margin: const EdgeInsets.symmetric(vertical: 25),
                     decoration: BoxDecoration(
-                        color: Colors.green,
+                        color: Color.fromARGB(255, 2, 116, 88),
                         borderRadius: BorderRadius.circular(20)),
                     child: TextButton(
                       onPressed: () {
@@ -185,18 +232,13 @@ class _LogInState extends State<LogIn> {
                   ),
                 ],
               )),
-              Container(
-                  padding: const EdgeInsets.symmetric(vertical: 25),
-                  child: _errorMessage != null
-                      ? Text(_errorMessage!,
-                          style: const TextStyle(color: Colors.red))
-                      : null),
               TextButton(
                   onPressed: _setLogInSignUpState,
                   child: Text(
                     _logIn
                         ? "New to WolfBoard? Sign up"
                         : 'Already have an account? Log in.',
+                    style: TextStyle(color: Colors.black),
                   ))
             ],
           ),

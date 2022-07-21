@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
+import 'package:flutter_todo/Constants.dart';
 import 'dart:convert';
 import 'package:flutter_todo/realm/init_realm.dart';
 import 'package:flutter_todo/scheduleviews/scheduleview2.dart';
@@ -54,8 +55,12 @@ class App extends StatelessWidget {
       child: MaterialApp(
         title: 'Schedule App',
         theme: ThemeData(
-          primarySwatch: Colors.green,
-        ),
+            appBarTheme: AppBarTheme(
+                //color: Colors.white,
+                backgroundColor: Colors.white,
+                surfaceTintColor: Colors.green,
+                shadowColor: Colors.green),
+            primarySwatch: MaterialColor(027458, THEMECOLOR)),
         //initialRoute: '/period1',
         initialRoute: currentUser != null ? '/' : '/login',
         routes: {

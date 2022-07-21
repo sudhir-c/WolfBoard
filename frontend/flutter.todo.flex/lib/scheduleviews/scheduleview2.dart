@@ -6,6 +6,7 @@ import 'package:flutter_todo/components/app_bar.dart';
 import 'package:flutter_todo/realm/app_services.dart';
 import 'package:realm/realm.dart';
 
+import '../Constants.dart';
 import '../components/schedule_view_header.dart';
 
 class ScheduleView2 extends StatefulWidget {
@@ -24,12 +25,14 @@ class ScheduleViewState2 extends State<ScheduleView2> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           ElevatedButton(
+              style: NAVBUTTON,
               onPressed: () {
                 Navigator.pushNamed(context, '/period1');
               },
               child: Text("Previous period")),
           Padding(padding: EdgeInsets.all(10)),
           ElevatedButton(
+              style: NAVBUTTON,
               onPressed: () {
                 Navigator.pushNamed(context, '/period3');
               },

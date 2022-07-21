@@ -67,11 +67,11 @@ Future<RealmResults<user_info>> newDBquery(Realm realm, String query) async {
 }
 
 //var config = Configuration.local([user_info.schema]);
-var config = Configuration.local([user_info.schema], schemaVersion: 1);
-var newRealm = Realm(config);
+// var config = Configuration.local([user_info.schema], schemaVersion: 1);
+// var newRealm = Realm(config);
 Future<List<String>> getClassmates(BuildContext context, String period,
     Realm realm, String courseName, String teacherName) async {
-  print(newRealm.all<user_info>().toString());
+  //print(newRealm.all<user_info>().toString());
   bool empty = true;
   switch (period) {
     case "1":

@@ -7,6 +7,7 @@ import 'package:flutter_todo/realm/schemas.dart';
 import 'package:flutter_todo/viewmodels/userinfo_viewmodel.dart';
 import 'package:provider/provider.dart';
 import 'package:realm/realm.dart';
+import 'package:flutter_todo/Constants.dart';
 import '../components/todo_list.dart';
 import '../components/create_todo.dart';
 import '../components/app_bar.dart';
@@ -32,7 +33,6 @@ class ScheduleViewHeaderState extends State<ScheduleViewHeader> {
 
   @override
   Widget build(BuildContext context) {
-    final currentUser = Provider.of<AppServices>(context).currentUser;
     print(courseName);
     print(teacherName);
 
@@ -236,16 +236,20 @@ class ScheduleViewHeaderState extends State<ScheduleViewHeader> {
       // }
 
       return Scaffold(
-          body: Column(children: [
-        Padding(padding: EdgeInsets.all(4)),
-        Text("Period " + period + ": " + courseName + " with " + teacherName,
-            style:
-                TextStyle(fontSize: 30, color: Color.fromARGB(255, 0, 0, 0))),
-        Column(children: classmatesToText(classmates))
-        // Text(classmates.toString(),
-        //     //classmates.toString(),
-        //     style: TextStyle(fontSize: 10, color: Color.fromARGB(255, 0, 0, 0)))
-      ]));
+          body: Padding(
+        padding: EdgeInsets.all(8),
+        child: Column(children: [
+          Text(
+            "Period " + period + ": " + courseName + " with " + teacherName,
+            style: HEADERTEXT,
+            textAlign: TextAlign.center,
+          ),
+          Column(children: classmatesToText(classmates))
+          // Text(classmates.toString(),
+          //     //classmates.toString(),
+          //     style: TextStyle(fontSize: 10, color: Color.fromARGB(255, 0, 0, 0)))
+        ]),
+      ));
 
       // List<String> schedule = [];
       // List<String> classmates = [];

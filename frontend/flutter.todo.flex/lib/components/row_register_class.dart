@@ -25,7 +25,7 @@ class RowRegisterClassState extends State<RowRegisterClasses> {
 
   @override
   Widget build(BuildContext context) {
-    return Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+    return Row(children: [
       Padding(
           padding: EdgeInsets.fromLTRB(8, 0, 0, 8),
           child: Row(children: [
