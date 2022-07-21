@@ -23,7 +23,7 @@ class Redirect extends StatelessWidget {
         body: Center(child: Consumer<Realm?>(builder: (context, realm, child) {
       final realm = Provider.of<Realm?>(context);
       if (realm == null) {
-        return Container();
+        return Text("No data");
       }
       Future<String> scheduleUploaded = m(realm);
       scheduleUploaded.then<void>((String value) {

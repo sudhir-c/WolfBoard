@@ -21,6 +21,7 @@ class Bug extends StatefulWidget {
 class BugState extends State<Bug> {
   final _bugController = TextEditingController();
   var submitVisible = false;
+
   @override
   void dispose() {
     _bugController.dispose();
@@ -69,19 +70,33 @@ class BugState extends State<Bug> {
                         width: 120,
                         margin: const EdgeInsets.symmetric(vertical: 25),
                         decoration: BoxDecoration(
-                            color: Colors.green,
+                            color: Color.fromARGB(255, 2, 116, 88),
                             borderRadius: BorderRadius.circular(20)),
                         child: TextButton(
                           onPressed: () {
-                            realm?.write(() async {
-                              realm
-                                  .query<user_info>(
-                                      'owner_id == "${currentUser?.id}"')
-                                  .last
-                                  .summary = _bugController.text;
-                            });
-                            dispose();
-                            Navigator.pushNamed(context, '/redirect');
+                            try {
+                              realm?.write(() async {
+                                realm
+                                    .query<user_info>(
+                                        'owner_id == "${currentUser?.id}"')
+                                    .last
+                                    .summary = _bugController.text;
+                                dispose();
+                                Navigator.pushNamed(context, '/redirect');
+                              });
+                            } catch (e) {
+                              () {
+                                showDialog(
+                                    context: context,
+                                    builder: (context) {
+                                      return AlertDialog(
+                                        content: Text(
+                                            "Sorry, your bug was unable to go through. Please contact us through our Instagram or email."),
+                                      );
+                                    });
+                              };
+                            }
+                            ;
                           },
                           child: Text(
                             "Submit",
