@@ -6,6 +6,21 @@
       <excludeFolder url="file://$MODULE_DIR$/frontend/flutter.todo.flex/build" />
       <excludeFolder url="file://$MODULE_DIR$/frontend/flutter.todo.flex/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/frontend/flutter.todo.flex/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/flutter.todo.flex/windows/flutter/ephemeral/.plugin_symlinks/realm/example/build" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/flutter.todo.flex/windows/flutter/ephemeral/.plugin_symlinks/realm/example/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/flutter.todo.flex/windows/flutter/ephemeral/.plugin_symlinks/realm/example/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/flutter.todo.flex/windows/flutter/ephemeral/.plugin_symlinks/realm/tests/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/flutter.todo.flex/windows/flutter/ephemeral/.plugin_symlinks/realm/tests/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/flutter.todo.flex/windows/flutter/ephemeral/.plugin_symlinks/realm/tests/build" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/flutter.todo.flex/windows/flutter/ephemeral/.plugin_symlinks/path_provider_windows/example/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/flutter.todo.flex/windows/flutter/ephemeral/.plugin_symlinks/path_provider_windows/example/build" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/flutter.todo.flex/windows/flutter/ephemeral/.plugin_symlinks/path_provider_windows/example/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/flutter.todo.flex/windows/flutter/ephemeral/.plugin_symlinks/path_provider_windows/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/flutter.todo.flex/windows/flutter/ephemeral/.plugin_symlinks/path_provider_windows/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/flutter.todo.flex/windows/flutter/ephemeral/.plugin_symlinks/path_provider_windows/build" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/flutter.todo.flex/windows/flutter/ephemeral/.plugin_symlinks/realm/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/flutter.todo.flex/windows/flutter/ephemeral/.plugin_symlinks/realm/build" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/flutter.todo.flex/windows/flutter/ephemeral/.plugin_symlinks/realm/.dart_tool" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

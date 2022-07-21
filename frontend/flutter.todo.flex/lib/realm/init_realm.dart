@@ -8,7 +8,7 @@ Realm initRealm(User currentUser) {
   Realm realm = Realm(
     config,
   );
-  final userInfo = realm.subscriptions.findByName('');
+  final userInfo = realm.subscriptions.findByName('getUserInfo');
   // // final bugSchemasub = realm.subscriptions.findByName('');
   // if (bugSchemasub == null) {
   //   realm.subscriptions.update((mutableSubscriptions) {
@@ -17,7 +17,7 @@ Realm initRealm(User currentUser) {
   // }
   if (userInfo == null) {
     realm.subscriptions.update((mutableSubscriptions) {
-      mutableSubscriptions.add(realm.all<user_info>(), name: '');
+      mutableSubscriptions.add(realm.all<user_info>(), name: 'getUserInfo');
     });
   }
   return realm;

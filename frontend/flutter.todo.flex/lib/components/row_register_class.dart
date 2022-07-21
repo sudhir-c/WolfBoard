@@ -31,14 +31,16 @@ class RowRegisterClassState extends State<RowRegisterClasses> {
           child: Row(children: [
             Text(
               periodNumber,
-              style: TextStyle(fontSize: 10),
+              style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
             ),
             Padding(padding: EdgeInsets.all(8)),
             DropdownButton<String>(
                 hint: Text("Course"),
                 value: courseDropdown,
                 style: TextStyle(
-                    fontSize: 10, color: Color.fromARGB(255, 0, 0, 0)),
+                    fontSize: 10,
+                    color: Color.fromARGB(255, 0, 0, 0),
+                    fontWeight: FontWeight.bold),
                 items: COURSES.map<DropdownMenuItem<String>>((String value) {
                   return DropdownMenuItem<String>(
                     value: value,
@@ -54,8 +56,10 @@ class RowRegisterClassState extends State<RowRegisterClasses> {
             DropdownButton<String>(
               hint: Text("Teacher"),
               value: staffDropdown,
-              style:
-                  TextStyle(fontSize: 10, color: Color.fromARGB(255, 0, 0, 0)),
+              style: TextStyle(
+                  fontSize: 10,
+                  color: Color.fromARGB(255, 0, 0, 0),
+                  fontWeight: FontWeight.bold),
               items: STAFF.map<DropdownMenuItem<String>>((String value) {
                 return DropdownMenuItem<String>(
                   value: value,

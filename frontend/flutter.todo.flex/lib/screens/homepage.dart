@@ -11,7 +11,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: RegisterClasses(),
-      backgroundColor: Color.fromARGB(255, 168, 168, 168),
+      backgroundColor: Color.fromARGB(255, 226, 226, 226),
       //floatingActionButton: CreateTodo(),
       // body: Center(
       //     child: Column(

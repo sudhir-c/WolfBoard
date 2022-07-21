@@ -19,6 +19,7 @@ class ScheduleView6State extends State<ScheduleView6> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromARGB(255, 226, 226, 226),
       appBar: TodoAppBar(),
       body: ScheduleViewHeader(period: "6"),
       bottomNavigationBar: Row(

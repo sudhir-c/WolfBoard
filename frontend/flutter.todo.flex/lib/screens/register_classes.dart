@@ -29,9 +29,11 @@ class RegisterClassesState extends State<RegisterClasses> {
   Widget build(BuildContext context) {
     final currentUser = Provider.of<AppServices>(context).currentUser;
     return Scaffold(
+        backgroundColor: Color.fromARGB(255, 226, 226, 226),
         appBar: TodoAppBar(),
         body: Center(child: Consumer<Realm?>(builder: (context, realm, child) {
           return Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Padding(padding: EdgeInsets.all(8)),
               Text(
@@ -158,7 +160,13 @@ class RegisterClassesState extends State<RegisterClasses> {
                                 ),
                               );
                             });
-                      }))
+                      })),
+              Padding(padding: EdgeInsets.all(20)),
+              ElevatedButton(
+                onPressed: () => Navigator.pushNamed(context, '/redirect'),
+                child: Text("Cancel"),
+                style: NAVBUTTON,
+              )
             ],
           );
         })));

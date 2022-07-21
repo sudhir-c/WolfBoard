@@ -10,6 +10,13 @@ void setName(String name) {
   _name = name;
 }
 
+bool _internetConnection = true;
+bool get internetConnection => _internetConnection;
+
+void setInternetConnection(bool val) {
+  _internetConnection = val;
+}
+
 String _email = "";
 String _periodOneCourse = "";
 String _periodTwoCourse = "";

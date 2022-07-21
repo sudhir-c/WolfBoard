@@ -35,6 +35,7 @@ class BugState extends State<Bug> {
     // var realm = Realm(config);
     return Center(child: Consumer<Realm?>(builder: (context, realm, child) {
       return Scaffold(
+          backgroundColor: Color.fromARGB(255, 226, 226, 226),
           appBar: TodoAppBar(),
           body: Padding(
               padding: EdgeInsets.fromLTRB(4, 4, 4, 4),

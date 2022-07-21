@@ -35,7 +35,6 @@ class ScheduleViewHeaderState extends State<ScheduleViewHeader> {
   Widget build(BuildContext context) {
     print(courseName);
     print(teacherName);
-
     Future<List<String>> scheduleWaiter(
         Realm realm, BuildContext context) async {
       print("IN SCHEDULEWAITER");
@@ -236,20 +235,21 @@ class ScheduleViewHeaderState extends State<ScheduleViewHeader> {
       // }
 
       return Scaffold(
+          backgroundColor: Color.fromARGB(255, 226, 226, 226),
           body: Padding(
-        padding: EdgeInsets.all(8),
-        child: Column(children: [
-          Text(
-            "Period " + period + ": " + courseName + " with " + teacherName,
-            style: HEADERTEXT,
-            textAlign: TextAlign.center,
-          ),
-          Column(children: classmatesToText(classmates))
-          // Text(classmates.toString(),
-          //     //classmates.toString(),
-          //     style: TextStyle(fontSize: 10, color: Color.fromARGB(255, 0, 0, 0)))
-        ]),
-      ));
+            padding: EdgeInsets.all(8),
+            child: Column(children: [
+              Text(
+                "Period " + period + ": " + courseName + " with " + teacherName,
+                style: HEADERTEXT,
+                textAlign: TextAlign.center,
+              ),
+              Column(children: classmatesToText(classmates))
+              // Text(classmates.toString(),
+              //     //classmates.toString(),
+              //     style: TextStyle(fontSize: 10, color: Color.fromARGB(255, 0, 0, 0)))
+            ]),
+          ));
 
       // List<String> schedule = [];
       // List<String> classmates = [];

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_todo/Constants.dart';
 import 'package:flutter_todo/info_store.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_todo/components/app_bar.dart';
@@ -34,6 +35,7 @@ class _LogInState extends State<LogIn> {
 
   @override
   Widget build(BuildContext context) {
+    print(internetConnection);
     final app = Provider.of<AppServices>(context);
     void _logInUser() async {
       setState(() {
@@ -104,6 +106,7 @@ class _LogInState extends State<LogIn> {
 
     return Scaffold(
       appBar: const TodoAppBar(),
+      backgroundColor: Color.fromARGB(255, 226, 226, 226),
       body: Container(
         padding: const EdgeInsets.all(25),
         child: SingleChildScrollView(
@@ -191,36 +194,53 @@ class _LogInState extends State<LogIn> {
                         borderRadius: BorderRadius.circular(20)),
                     child: TextButton(
                       onPressed: () {
-                        if (_logIn) {
-                          _logInUser();
-                        } else {
+                        if (!internetConnection) {
                           showDialog(
                               context: context,
                               builder: (context) {
                                 return AlertDialog(
-                                  contentPadding:
-                                      EdgeInsets.fromLTRB(24, 50, 24, 50),
-                                  title: Text(
-                                      "Are you sure? This info cannot be changed later."),
-                                  content: Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      ElevatedButton(
-                                        child: Text("Yes"),
-                                        onPressed: () {
-                                          _signUpUser();
-                                        },
-                                      ),
-                                      Padding(padding: EdgeInsets.all(10)),
-                                      ElevatedButton(
-                                          onPressed: () {
-                                            Navigator.pop(context, true);
-                                          },
-                                          child: Text("No")),
-                                    ],
-                                  ),
-                                );
+                                    contentPadding:
+                                        EdgeInsets.fromLTRB(24, 24, 24, 24),
+                                    title: Text(
+                                      "Oh no!",
+                                      style: HEADERTEXT,
+                                    ),
+                                    content: Text(
+                                        "You have no internet and the app will not function. Please wait till you get connection."));
                               });
+                        } else {
+                          if (_logIn) {
+                            _logInUser();
+                          } else {
+                            showDialog(
+                                context: context,
+                                builder: (context) {
+                                  return AlertDialog(
+                                    contentPadding:
+                                        EdgeInsets.fromLTRB(24, 50, 24, 50),
+                                    title: Text(
+                                        "Are you sure? This info cannot be changed later."),
+                                    content: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        ElevatedButton(
+                                          child: Text("Yes"),
+                                          onPressed: () {
+                                            _signUpUser();
+                                          },
+                                        ),
+                                        Padding(padding: EdgeInsets.all(10)),
+                                        ElevatedButton(
+                                            onPressed: () {
+                                              Navigator.pop(context, true);
+                                            },
+                                            child: Text("No")),
+                                      ],
+                                    ),
+                                  );
+                                });
+                          }
                         }
                       },
                       child: Text(
