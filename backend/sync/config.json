@@ -30,6 +30,7 @@
         "periodThreeTeacher",
         "periodFourTeacher",
         "periodFiveTeacher",
-        "periodSixTeacher"
+        "periodSixTeacher",
+        "scheduleUploaded"
     ]
 }
