@@ -3,8 +3,6 @@ import 'package:flutter_todo/Constants.dart';
 import 'package:flutter_todo/info_store.dart';
 import 'package:flutter_todo/components/row_register_class.dart';
 import 'package:flutter_todo/realm/app_services.dart';
-import 'package:flutter_todo/realm/bugSchema.dart';
-
 import 'package:provider/provider.dart';
 import 'package:flutter_todo/realm/schemas.dart';
 import 'package:realm/realm.dart';
@@ -22,7 +20,6 @@ class BugState extends State<Bug> {
   final _bugController = TextEditingController();
   var submitVisible = false;
 
-  @override
   void dispose() {
     _bugController.dispose();
     super.dispose();
@@ -82,8 +79,6 @@ class BugState extends State<Bug> {
                                         'owner_id == "${currentUser?.id}"')
                                     .last
                                     .summary = _bugController.text;
-                                dispose();
-                                Navigator.pushNamed(context, '/redirect');
                               });
                             } catch (e) {
                               () {
@@ -98,6 +93,8 @@ class BugState extends State<Bug> {
                               };
                             }
                             ;
+                            dispose();
+                            Navigator.pushNamed(context, '/redirect');
                           },
                           child: Text(
                             "Submit",
@@ -106,6 +103,12 @@ class BugState extends State<Bug> {
                           ),
                         ),
                       )),
+                  Padding(padding: EdgeInsets.all(5)),
+                  ElevatedButton(
+                    onPressed: () => Navigator.pushNamed(context, '/redirect'),
+                    child: Text("Cancel"),
+                    style: NAVBUTTON,
+                  )
                 ],
               )));
     }));
