@@ -4,6 +4,9 @@ import 'package:flutter_todo/info_store.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_todo/components/app_bar.dart';
 import 'package:flutter_todo/realm/app_services.dart';
+import 'package:realm/realm.dart';
+
+import '../realm/schemas.dart';
 
 class LogIn extends StatefulWidget {
   @override
@@ -98,9 +101,34 @@ class _LogInState extends State<LogIn> {
             _errorMessage =
                 "Error, please try again. Check your email, password, and name.";
           }
+          //TODO
+          // realm?.write(() {
+          //   final newSchedule = user_info(
+          //       ObjectId(),
+          //       "no summary",
+          //       currentUser!.id,
+          //       name,
+          //       email,
+          //       periodOneCourse,
+          //       periodTwoCourse,
+          //       periodThreeCourse,
+          //       periodFourCourse,
+          //       periodFiveCourse,
+          //       periodSixCourse,
+          //       periodOneTeacher,
+          //       periodTwoTeacher,
+          //       periodThreeTeacher,
+          //       periodFourTeacher,
+          //       periodFiveTeacher,
+          //       periodSixTeacher,
+          //       "true");
+          //   realm.add<user_info>(newSchedule);
+          // });
+
           //RealmException : invalid username
           //RealmException : invalid username/password
         });
+        _logInUser();
       }
     }
 
@@ -174,7 +202,7 @@ class _LogInState extends State<LogIn> {
                     ),
                   ),
                   Visibility(
-                      //visible: !_logIn,
+                      visible: !_logIn,
                       child: Padding(
                           padding: EdgeInsets.only(
                               left: 15.0, right: 15.0, top: 15, bottom: 0),

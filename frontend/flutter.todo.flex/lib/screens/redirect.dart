@@ -25,19 +25,22 @@ class Redirect extends StatelessWidget {
       if (realm == null) {
         return Text("No data");
       }
-      Future<String> scheduleUploaded = m(realm);
-      scheduleUploaded.then<void>((String value) {
-        if (value == "true") {
-          Navigator.pushNamed(context, '/period1');
-        } else {
-          Navigator.pushNamed(context, '/default');
-        }
+      Future<void> initialize = initUser(realm, context);
+      initialize.then<void>((void val) {
+        Future<String> scheduleUploaded = m(realm);
+        scheduleUploaded.then<void>((String value) {
+          if (value == "true") {
+            Navigator.pushNamed(context, '/period1');
+          } else {
+            Navigator.pushNamed(context, '/default');
+          }
+        });
       });
       return Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            "Loading",
+            "",
             style: TextStyle(fontSize: 30, fontStyle: FontStyle.italic),
           )
         ],

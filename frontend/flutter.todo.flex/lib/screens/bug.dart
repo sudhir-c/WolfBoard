@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_todo/Constants.dart';
 import 'package:flutter_todo/info_store.dart';
@@ -72,6 +74,13 @@ class BugState extends State<Bug> {
                             borderRadius: BorderRadius.circular(20)),
                         child: TextButton(
                           onPressed: () {
+                            showDialog(
+                                context: context,
+                                builder: (context) {
+                                  return AlertDialog(
+                                    content: Text("Request going through..."),
+                                  );
+                                });
                             try {
                               realm?.write(() async {
                                 realm
@@ -80,6 +89,7 @@ class BugState extends State<Bug> {
                                     .last
                                     .summary = _bugController.text;
                               });
+                              sleep(Duration(seconds: 2));
                             } catch (e) {
                               () {
                                 showDialog(

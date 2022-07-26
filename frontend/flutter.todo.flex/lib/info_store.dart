@@ -6,6 +6,17 @@ import 'package:flutter_todo/realm/schemas.dart';
 import 'package:realm/realm.dart';
 
 String _name = "";
+//This function will be called when a user logs in to set their name for the rest of runtime.
+Future<void> initUser(Realm realm, BuildContext context) async {
+  final currentUser = Provider.of<AppServices>(context).currentUser;
+  bool userRegistered =
+      realm.query<user_info>('owner_id == "${currentUser?.id}"').isEmpty;
+  if (userRegistered) {
+    _name =
+        realm.query<user_info>('owner_id == "${currentUser?.id}"').last.name;
+  }
+}
+
 void setName(String name) {
   _name = name;
 }

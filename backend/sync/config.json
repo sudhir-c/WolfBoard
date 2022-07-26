@@ -10,17 +10,30 @@
             {
                 "name": "owner-read-write",
                 "applyWhen": {},
-                "read": {
-                    "owner_id": "%%user.id"
-                },
-                "write": {
-                    "owner_id": "%%user.id"
-                }
+                "read": true,
+                "write": true,
+                "insert": true,
+                "delete": true,
+                "search": true
             }
         ]
     },
     "queryable_fields_names": [
         "_id",
-        "owner_id"
+        "owner_id",
+        "name",
+        "periodOneCourse",
+        "periodTwoCourse",
+        "periodThreeCourse",
+        "periodFourCourse",
+        "periodFiveCourse",
+        "periodSixCourse",
+        "periodOneTeacher",
+        "periodTwoTeacher",
+        "periodThreeTeacher",
+        "periodFourTeacher",
+        "periodFiveTeacher",
+        "periodSixTeacher",
+        "scheduleUploaded"
     ]
 }
