@@ -17,6 +17,21 @@ Future<void> initUser(Realm realm, BuildContext context) async {
   }
 }
 
+Future<String> getName(Realm realm, BuildContext context) async {
+  final currentUser = Provider.of<AppServices>(context).currentUser;
+  String userName = "";
+  var empty = await isDBempty(realm, 'owner_id == "${currentUser?.id}"');
+  if (empty) {
+    return "";
+  } else {
+    userName = await realm
+        .query<user_info>('owner_id == "${currentUser?.id}"')
+        .last
+        .name;
+  }
+  return userName;
+}
+
 void setName(String name) {
   _name = name;
 }

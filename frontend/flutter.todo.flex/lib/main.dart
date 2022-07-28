@@ -17,7 +17,7 @@ import 'package:realm/realm.dart';
 import 'realm/app_services.dart';
 import './screens/homepage.dart';
 import './screens/log_in.dart';
-//import 'package:realm_dart/realm.dart';
+import 'package:sizer/sizer.dart';
 
 void main() async {
   // get app id from config
@@ -51,32 +51,33 @@ class App extends StatelessWidget {
     final currentUser =
         Provider.of<AppServices>(context, listen: false).currentUser;
     return WillPopScope(
-      onWillPop: () async => false,
-      child: MaterialApp(
-        title: 'Schedule App',
-        theme: ThemeData(
-            appBarTheme: AppBarTheme(
-                //color: Colors.white,
-                backgroundColor: Colors.white,
-                surfaceTintColor: Colors.green,
-                shadowColor: Colors.green),
-            primarySwatch: MaterialColor(027458, THEMECOLOR)),
-        //initialRoute: '/period1',
-        initialRoute: currentUser != null ? '/' : '/login',
-        routes: {
-          '/': (context) => const HomePage(),
-          '/redirect': (context) => Redirect(),
-          '/login': (context) => LogIn(),
-          '/bug': (context) => Bug(),
-          '/default': (context) => const Default(),
-          '/period1': (context) => ScheduleView(),
-          '/period2': (context) => ScheduleView2(),
-          '/period3': (context) => ScheduleView3(),
-          '/period4': (context) => ScheduleView4(),
-          '/period5': (context) => ScheduleView5(),
-          '/period6': (context) => ScheduleView6()
-        },
-      ),
-    );
+        onWillPop: () async => false,
+        child: Sizer(builder: (context, orientation, deviceType) {
+          return MaterialApp(
+            title: 'Schedule App',
+            theme: ThemeData(
+                appBarTheme: AppBarTheme(
+                    //color: Colors.white,
+                    backgroundColor: Colors.white,
+                    surfaceTintColor: Colors.green,
+                    shadowColor: Colors.green),
+                primarySwatch: MaterialColor(027458, THEMECOLOR)),
+            //initialRoute: '/period1',
+            initialRoute: currentUser != null ? '/' : '/login',
+            routes: {
+              '/': (context) => const HomePage(),
+              '/redirect': (context) => Redirect(),
+              '/login': (context) => LogIn(),
+              '/bug': (context) => Bug(),
+              '/default': (context) => const Default(),
+              '/period1': (context) => ScheduleView(),
+              '/period2': (context) => ScheduleView2(),
+              '/period3': (context) => ScheduleView3(),
+              '/period4': (context) => ScheduleView4(),
+              '/period5': (context) => ScheduleView5(),
+              '/period6': (context) => ScheduleView6()
+            },
+          );
+        }));
   }
 }

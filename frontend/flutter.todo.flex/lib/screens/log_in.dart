@@ -46,7 +46,6 @@ class _LogInState extends State<LogIn> {
       });
       try {
         setEmail(_emailController.text);
-        setName(_nameController.text);
         await app.logInUserEmailPw(
             _emailController.text, _passwordController.text);
         Navigator.pushNamed(context, '/redirect');
