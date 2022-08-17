@@ -22,7 +22,7 @@ Future<String> getName(Realm realm, BuildContext context) async {
   String userName = "";
   var empty = await isDBempty(realm, 'owner_id == "${currentUser?.id}"');
   if (empty) {
-    return "";
+    return _name;
   } else {
     userName = await realm
         .query<user_info>('owner_id == "${currentUser?.id}"')
@@ -90,7 +90,8 @@ Future<String> isUserDataUploaded(Realm realm, String query) async {
   if (realm.query<user_info>(query).isEmpty) {
     return "false";
   } else {
-    return await realm.query<user_info>(query).last.scheduleUploaded;
+    return "true";
+    //return await realm.query<user_info>(query).last.scheduleUploaded;
   }
 }
 

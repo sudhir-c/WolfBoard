@@ -5,6 +5,7 @@ import 'package:flutter_todo/realm/app_services.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_todo/realm/schemas.dart';
 import 'package:realm/realm.dart';
+import 'package:sizer/sizer.dart';
 
 class RowRegisterClasses extends StatefulWidget {
   final String periodNumber;
@@ -25,20 +26,20 @@ class RowRegisterClassState extends State<RowRegisterClasses> {
 
   @override
   Widget build(BuildContext context) {
-    return Row(children: [
+    return Row(mainAxisAlignment: MainAxisAlignment.center, children: [
       Padding(
-          padding: EdgeInsets.fromLTRB(8, 0, 0, 8),
+          padding: EdgeInsets.fromLTRB(0.5.sp, 0, 0, 0.5.sp),
           child: Row(children: [
             Text(
               periodNumber,
-              style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 8.sp, fontWeight: FontWeight.bold),
             ),
-            Padding(padding: EdgeInsets.all(8)),
+            Padding(padding: EdgeInsets.all(1.5.sp)),
             DropdownButton<String>(
                 hint: Text("Course"),
                 value: courseDropdown,
                 style: TextStyle(
-                    fontSize: 10,
+                    fontSize: 6.sp,
                     color: Color.fromARGB(255, 0, 0, 0),
                     fontWeight: FontWeight.bold),
                 items: COURSES.map<DropdownMenuItem<String>>((String value) {
@@ -57,7 +58,7 @@ class RowRegisterClassState extends State<RowRegisterClasses> {
               hint: Text("Teacher"),
               value: staffDropdown,
               style: TextStyle(
-                  fontSize: 10,
+                  fontSize: 6.sp,
                   color: Color.fromARGB(255, 0, 0, 0),
                   fontWeight: FontWeight.bold),
               items: STAFF.map<DropdownMenuItem<String>>((String value) {

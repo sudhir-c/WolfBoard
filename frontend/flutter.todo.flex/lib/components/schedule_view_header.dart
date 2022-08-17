@@ -8,6 +8,7 @@ import 'package:flutter_todo/viewmodels/userinfo_viewmodel.dart';
 import 'package:provider/provider.dart';
 import 'package:realm/realm.dart';
 import 'package:flutter_todo/Constants.dart';
+import 'package:sizer/sizer.dart';
 import '../components/todo_list.dart';
 import '../components/create_todo.dart';
 import '../components/app_bar.dart';
@@ -53,7 +54,8 @@ class ScheduleViewHeaderState extends State<ScheduleViewHeader> {
       for (int i = 0; i < classmates.length; i++) {
         classmatesText.add(Text(
           classmates[i],
-          style: TextStyle(fontSize: 20, color: Color.fromARGB(255, 5, 48, 16)),
+          style:
+              TextStyle(fontSize: 12.sp, color: Color.fromARGB(255, 5, 48, 16)),
         ));
       }
       return classmatesText;
@@ -237,14 +239,16 @@ class ScheduleViewHeaderState extends State<ScheduleViewHeader> {
       return Scaffold(
           backgroundColor: Color.fromARGB(255, 226, 226, 226),
           body: Padding(
-            padding: EdgeInsets.all(8),
+            padding: EdgeInsets.all(8.sp),
             child: Column(children: [
               Text(
                 "Period " + period + ": " + courseName + " with " + teacherName,
                 style: HEADERTEXT,
                 textAlign: TextAlign.center,
               ),
-              Column(children: classmatesToText(classmates))
+              Container(
+                  height: 60.h,
+                  child: Column(children: classmatesToText(classmates)))
               // Text(classmates.toString(),
               //     //classmates.toString(),
               //     style: TextStyle(fontSize: 10, color: Color.fromARGB(255, 0, 0, 0)))

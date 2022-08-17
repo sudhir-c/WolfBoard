@@ -7,6 +7,7 @@ import 'package:flutter_todo/realm/app_services.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_todo/realm/schemas.dart';
 import 'package:realm/realm.dart';
+import 'package:sizer/sizer.dart';
 
 class Redirect extends StatelessWidget {
   Redirect({Key? key}) : super(key: key);
@@ -14,7 +15,7 @@ class Redirect extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final currentUser = Provider.of<AppServices>(context).currentUser;
-    Future<String> m(Realm realm) {
+    Future<String> getUploadStatus(Realm realm) {
       return isUserDataUploaded(realm, 'owner_id == "${currentUser?.id}"');
     }
 
@@ -27,7 +28,7 @@ class Redirect extends StatelessWidget {
       }
       Future<void> initialize = initUser(realm, context);
       initialize.then<void>((void val) {
-        Future<String> scheduleUploaded = m(realm);
+        Future<String> scheduleUploaded = getUploadStatus(realm);
         scheduleUploaded.then<void>((String value) {
           if (value == "true") {
             Navigator.pushNamed(context, '/period1');
@@ -41,7 +42,7 @@ class Redirect extends StatelessWidget {
         children: [
           Text(
             "",
-            style: TextStyle(fontSize: 30, fontStyle: FontStyle.italic),
+            style: TextStyle(fontSize: 30.sp, fontStyle: FontStyle.italic),
           )
         ],
       );

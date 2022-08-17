@@ -12,6 +12,7 @@ import 'package:flutter_todo/screens/bug.dart';
 import 'package:flutter_todo/screens/default.dart';
 import 'package:flutter_todo/scheduleviews/scheduleview.dart';
 import 'package:flutter_todo/screens/redirect.dart';
+import 'package:flutter_todo/screens/register_classes.dart';
 import 'package:provider/provider.dart';
 import 'package:realm/realm.dart';
 import 'realm/app_services.dart';
@@ -62,10 +63,10 @@ class App extends StatelessWidget {
                     surfaceTintColor: Colors.green,
                     shadowColor: Colors.green),
                 primarySwatch: MaterialColor(027458, THEMECOLOR)),
-            //initialRoute: '/period1',
-            initialRoute: currentUser != null ? '/' : '/login',
+            //initialRoute: '/',
+            initialRoute: currentUser != null ? '/redirect' : '/login',
             routes: {
-              '/': (context) => const HomePage(),
+              '/': (context) => HomePage(),
               '/redirect': (context) => Redirect(),
               '/login': (context) => LogIn(),
               '/bug': (context) => Bug(),
