@@ -63,7 +63,7 @@ class App extends StatelessWidget {
                     surfaceTintColor: Colors.green,
                     shadowColor: Colors.green),
                 primarySwatch: MaterialColor(027458, THEMECOLOR)),
-            //initialRoute: '/',
+            //initialRoute: '/redirect',
             initialRoute: currentUser != null ? '/redirect' : '/login',
             routes: {
               '/': (context) => HomePage(),

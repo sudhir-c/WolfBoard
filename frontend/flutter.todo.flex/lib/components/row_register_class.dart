@@ -32,9 +32,9 @@ class RowRegisterClassState extends State<RowRegisterClasses> {
           child: Row(children: [
             Text(
               periodNumber,
-              style: TextStyle(fontSize: 8.sp, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 7.sp, fontWeight: FontWeight.bold),
             ),
-            Padding(padding: EdgeInsets.all(1.5.sp)),
+            Padding(padding: EdgeInsets.all(2.5.sp)),
             DropdownButton<String>(
                 hint: Text("Course"),
                 value: courseDropdown,
@@ -45,7 +45,7 @@ class RowRegisterClassState extends State<RowRegisterClasses> {
                 items: COURSES.map<DropdownMenuItem<String>>((String value) {
                   return DropdownMenuItem<String>(
                     value: value,
-                    child: Text(value),
+                    child: Text(value, style: TextStyle(fontSize: 5.sp)),
                   );
                 }).toList(),
                 onChanged: (String? newValue) {
@@ -64,7 +64,7 @@ class RowRegisterClassState extends State<RowRegisterClasses> {
               items: STAFF.map<DropdownMenuItem<String>>((String value) {
                 return DropdownMenuItem<String>(
                   value: value,
-                  child: Text(value),
+                  child: Text(value, style: TextStyle(fontSize: 5.sp)),
                 );
               }).toList(),
               onChanged: (String? newValue) {

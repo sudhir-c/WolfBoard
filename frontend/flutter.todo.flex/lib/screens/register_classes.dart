@@ -70,7 +70,7 @@ class RegisterClassesState extends State<RegisterClasses> {
                       style: TextStyle(
                           color: Color.fromARGB(255, 2, 116, 88),
                           fontWeight: FontWeight.bold,
-                          fontSize: 15.sp),
+                          fontSize: 12.sp),
                     ),
                   ),
                   RowRegisterClasses(periodNumber: "1"),
