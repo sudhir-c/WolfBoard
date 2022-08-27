@@ -41,7 +41,6 @@ class _LogInState extends State<LogIn> {
   @override
   Widget build(BuildContext context) {
     final filter = ProfanityFilter();
-    print(internetConnection);
     final app = Provider.of<AppServices>(context);
     void _logInUser() async {
       setState(() {

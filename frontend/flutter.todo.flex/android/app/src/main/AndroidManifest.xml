@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.mongodb.flutter_todo">
    <application
-        android:label="flutter_todo"
+        android:label="WolfBoard"
         android:name="${applicationName}"
         android:icon="@mipmap/wb">
         <activity

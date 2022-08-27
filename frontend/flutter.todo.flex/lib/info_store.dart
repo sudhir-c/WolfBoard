@@ -82,7 +82,7 @@ String _periodSixTeacher = "";
 // Realm.Configuration.defaultConfiguration = config
 
 Future<bool> isDBempty(Realm realm, String query) async {
-  print("IN ISDBEMPTY");
+
   return realm.query<user_info>(query).isEmpty;
 }
 
@@ -96,7 +96,6 @@ Future<String> isUserDataUploaded(Realm realm, String query) async {
 }
 
 Future<RealmResults<user_info>> newDBquery(Realm realm, String query) async {
-  print("IN NEWDBQUERY");
   return realm.query<user_info>(query);
 }
 
@@ -105,7 +104,6 @@ Future<RealmResults<user_info>> newDBquery(Realm realm, String query) async {
 // var newRealm = Realm(config);
 Future<List<String>> getClassmates(BuildContext context, String period,
     Realm realm, String courseName, String teacherName) async {
-  //print(newRealm.all<user_info>().toString());
   bool empty = true;
   switch (period) {
     case "1":
@@ -175,7 +173,6 @@ Future<List<String>> getClassmates(BuildContext context, String period,
       }
       break;
   }
-  print("Is the db empty? " + empty.toString());
   if (empty) {
     return ["No classmates registered at the moment, check back later!"];
   }
@@ -253,38 +250,21 @@ Future<List<String>> getClassmates(BuildContext context, String period,
   }
 
   int queryLength = userSearch.length;
-  print(queryLength);
-  print(userSearch);
   List<String> classmates = []; //List.empty(growable: true);
 
   for (int i = 0; i < queryLength; i++) {
-    print(userSearch.elementAt(i));
     classmates.add(userSearch.elementAt(i).name);
   }
-  print(";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;");
-  print("=============================================");
-  print(classmates);
-  print(";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;");
-  print("=============================================");
   return classmates;
 }
 
 Future<List<String>> getUserSchedule(
     BuildContext context, String period, Realm realm) async {
-  print("IN USER SCHEDULE");
   List<String> schedule = ["course", "teacher"];
   final currentUser = Provider.of<AppServices>(context).currentUser;
   //final id = currentUser?.id;
   var empty = await isDBempty(realm, 'owner_id == "${currentUser?.id}"');
   if (empty) {
-    //62cd9cc2df78f4e8a6e11c9f
-    //62cd9cc2df78f4e8a6e11c9f
-    print('owner_id == "${currentUser?.id}"');
-    print("NO DATA*************************************************");
-    print("NO DATA*************************************************");
-    print("NO DATA*************************************************");
-    print("NO DATA*************************************************");
-    return (["No data at the moment", "Sorry, no data at the moment"]);
   }
   var userSearch = await newDBquery(realm, 'owner_id == "${currentUser?.id}"');
 
@@ -327,7 +307,6 @@ Future<List<String>> getUserSchedule(
       }
       break;
   }
-  print(schedule);
   return schedule;
 }
 
@@ -343,42 +322,36 @@ void setClass(String periodNumber, String course) {
     case "1":
       {
         _periodOneCourse = course;
-        print(course);
       }
       break;
 
     case "2":
       {
         _periodTwoCourse = course;
-        print(course);
       }
       break;
 
     case "3":
       {
         _periodThreeCourse = course;
-        print(course);
       }
       break;
 
     case "4":
       {
         _periodFourCourse = course;
-        print(course);
       }
       break;
 
     case "5":
       {
         _periodFiveCourse = course;
-        print(course);
       }
       break;
 
     case "6":
       {
         _periodSixCourse = course;
-        print(course);
       }
       break;
   }
@@ -389,42 +362,36 @@ void setTeacher(String periodNumber, String teacher) {
     case "1":
       {
         _periodOneTeacher = teacher;
-        print(teacher);
       }
       break;
 
     case "2":
       {
         _periodTwoTeacher = teacher;
-        print(teacher);
       }
       break;
 
     case "3":
       {
         _periodThreeTeacher = teacher;
-        print(teacher);
       }
       break;
 
     case "4":
       {
         _periodFourTeacher = teacher;
-        print(teacher);
       }
       break;
 
     case "5":
       {
         _periodFiveTeacher = teacher;
-        print(teacher);
       }
       break;
 
     case "6":
       {
         _periodSixTeacher = teacher;
-        print(teacher);
       }
       break;
   }

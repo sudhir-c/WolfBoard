@@ -34,30 +34,5 @@ class ScheduleView6State extends State<ScheduleView6> {
         ],
       ),
     );
-    // body: LayoutBuilder(builder: (context, constraints) {
-    //   return Scaffold(
-    //       // child: LayoutBuilder(builder:
-    //       //     (BuildContext context, BoxConstraints viewportConstraints) {
-    //       //   return SingleChildScrollView(
-    //       //       child: ConstrainedBox(
-    //       //           constraints: BoxConstraints(
-    //       //               minHeight: viewportConstraints.maxHeight),
-    //       //           // maxHeight: viewportConstraints.maxHeight,
-    //       //           // minWidth: viewportConstraints.minWidth,
-    //       //           // maxWidth: viewportConstraints.maxWidth),
-    //       body: Flex(direction: Axis.vertical, children: [
-    //     Expanded(
-    //         // mainAxisAlignment: MainAxisAlignment.center,
-    //         // crossAxisAlignment: CrossAxisAlignment.center,
-    //         child: Column(children: [
-    //       ScheduleViewHeader(period: "1"),
-    //       // ScheduleViewHeader(period: "2"),
-    //       // ScheduleViewHeader(period: "3"),
-    //       // ScheduleViewHeader(period: "4"),
-    //       // ScheduleViewHeader(period: "5"),
-    //       // ScheduleViewHeader(period: "6"),)
-    //     ]))
-    //   ]));
-    // }));
   }
 }

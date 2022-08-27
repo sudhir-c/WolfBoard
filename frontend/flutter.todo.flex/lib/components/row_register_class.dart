@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_todo/Constants.dart';
 import 'package:flutter_todo/info_store.dart';
-import 'package:flutter_todo/realm/app_services.dart';
-import 'package:provider/provider.dart';
-import 'package:flutter_todo/realm/schemas.dart';
-import 'package:realm/realm.dart';
 import 'package:sizer/sizer.dart';
 
 class RowRegisterClasses extends StatefulWidget {

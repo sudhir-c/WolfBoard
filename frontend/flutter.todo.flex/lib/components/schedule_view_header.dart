@@ -9,8 +9,6 @@ import 'package:provider/provider.dart';
 import 'package:realm/realm.dart';
 import 'package:flutter_todo/Constants.dart';
 import 'package:sizer/sizer.dart';
-import '../components/todo_list.dart';
-import '../components/create_todo.dart';
 import '../components/app_bar.dart';
 import '../realm/app_services.dart';
 

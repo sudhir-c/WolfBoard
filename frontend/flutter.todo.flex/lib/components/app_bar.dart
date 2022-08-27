@@ -5,7 +5,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_todo/info_store.dart';
 import 'package:provider/provider.dart';
-import 'package:realm/realm.dart';
 import 'package:flutter_todo/realm/app_services.dart';
 
 class TodoAppBar extends StatelessWidget with PreferredSizeWidget {
@@ -29,29 +28,12 @@ class TodoAppBar extends StatelessWidget with PreferredSizeWidget {
       Navigator.pushNamed(context, '/');
     }
 
-    //var imgfile = File('wolfboard/frontend/flutter.todo.flex/lib/logo.jpg');
-    // var uri = UrlInputElement();
-    // File wolfboardtext = File("frontend/flutter.todo.flex/lib/assets/logo.jpg");
-    // var i = AssetImage("assets/logo.jpg");
-    // var x = Image(image: i);
     var image;
     BoxConstraints? constr = BoxConstraints.tight(Size.square(130));
-    // image = Image.file(
-    //   wolfboardtext,
-    //   scale: 0.1,
-    // );
     try {
       image = Image.network(
         "https://wolfboardimages.files.wordpress.com/2022/07/logo-1.jpg?w=959&zoom=2",
         scale: 0.1,
-        // loadingBuilder: (BuildContext context, Object exception,
-        //     ImageChunkEvent? imageChunkEvent) {
-        //   return Text(
-        //     "WolfBoard",
-        //     style: TextStyle(
-        //         color: Colors.black, fontWeight: FontWeight.bold, fontSize: 15),
-        //   );
-        // },
         errorBuilder:
             (BuildContext context, Object exception, StackTrace? stackTrace) {
           setInternetConnection(false);

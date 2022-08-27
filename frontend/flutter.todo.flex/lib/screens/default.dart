@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_todo/Constants.dart';
 import 'package:flutter_todo/screens/register_classes.dart';
 import 'package:sizer/sizer.dart';
-import '../components/todo_list.dart';
-import '../components/create_todo.dart';
 import '../components/app_bar.dart';
 
 class Default extends StatelessWidget {
