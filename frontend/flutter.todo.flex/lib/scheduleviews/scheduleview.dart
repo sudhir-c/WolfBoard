@@ -18,10 +18,6 @@ class ScheduleView extends StatefulWidget {
 class ScheduleViewState extends State<ScheduleView> {
   @override
   Widget build(BuildContext context) {
-    Navigator.pushNamed(context, "nah");
-    return Text("null",
-        style:
-            TextStyle(color: Color.fromARGB(2543534556, 356, 900, 000344534)));
     return Scaffold(
         backgroundColor: Color.fromARGB(255, 226, 226, 226),
         appBar: TodoAppBar(),
