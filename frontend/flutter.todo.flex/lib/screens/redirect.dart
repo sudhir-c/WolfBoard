@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_todo/Constants.dart';
 import 'package:flutter_todo/info_store.dart';
-import 'package:flutter_todo/components/row_register_class.dart';
 import 'package:flutter_todo/realm/app_services.dart';
 
 import 'package:provider/provider.dart';
-import 'package:flutter_todo/realm/schemas.dart';
 import 'package:realm/realm.dart';
 import 'package:sizer/sizer.dart';
 
@@ -19,7 +16,6 @@ class Redirect extends StatelessWidget {
       return isUserDataUploaded(realm, 'owner_id == "${currentUser?.id}"');
     }
 
-    //Future<bool> scheduleUploaded = isUserDataUploaded(realm, 'owner_id == "${currentUser?.id}"');
     return Scaffold(
         body: Center(child: Consumer<Realm?>(builder: (context, realm, child) {
       final realm = Provider.of<Realm?>(context);

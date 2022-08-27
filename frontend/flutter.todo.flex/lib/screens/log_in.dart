@@ -5,10 +5,8 @@ import 'package:profanity_filter/profanity_filter.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_todo/components/app_bar.dart';
 import 'package:flutter_todo/realm/app_services.dart';
-import 'package:realm/realm.dart';
 import 'package:sizer/sizer.dart';
 
-import '../realm/schemas.dart';
 
 class LogIn extends StatefulWidget {
   @override
@@ -106,7 +104,6 @@ class _LogInState extends State<LogIn> {
               _emailController.text, _passwordController.text);
           setName(_nameController.text);
           _logInUser();
-          //Navigator.pushNamed(context, '/redirect');
         } catch (err) {
           setState(() {
             bool x = false;
@@ -142,34 +139,7 @@ class _LogInState extends State<LogIn> {
               _errorMessage =
                   "Error, please try again. Check your email and password.";
             }
-            //TODO
-            // realm?.write(() {
-            //   final newSchedule = user_info(
-            //       ObjectId(),
-            //       "no summary",
-            //       currentUser!.id,
-            //       name,
-            //       email,
-            //       periodOneCourse,
-            //       periodTwoCourse,
-            //       periodThreeCourse,
-            //       periodFourCourse,
-            //       periodFiveCourse,
-            //       periodSixCourse,
-            //       periodOneTeacher,
-            //       periodTwoTeacher,
-            //       periodThreeTeacher,
-            //       periodFourTeacher,
-            //       periodFiveTeacher,
-            //       periodSixTeacher,
-            //       "true");
-            //   realm.add<user_info>(newSchedule);
-            // });
-
-            //RealmException : invalid username
-            //RealmException : invalid username/password
           });
-          //_logInUser();
         }
       }
     }
@@ -229,7 +199,6 @@ class _LogInState extends State<LogIn> {
                             right: 15.0.sp,
                             top: 15.sp,
                             bottom: 0.sp),
-                        //padding: EdgeInsets.symmetric(horizontal: 15),
                         child: TextField(
                           obscureText: true,
                           controller: _passwordController,
@@ -293,8 +262,6 @@ class _LogInState extends State<LogIn> {
                                     context: context,
                                     builder: (context) {
                                       return AlertDialog(
-                                        // contentPadding: EdgeInsets.fromLTRB(
-                                        //     24.sp, 50.sp, 24.sp, 50.sp),
                                         title: Text(
                                             "Are you sure? This info cannot be changed later."),
                                         content: Row(

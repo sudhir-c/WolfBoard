@@ -2,8 +2,6 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_todo/Constants.dart';
-import 'package:flutter_todo/info_store.dart';
-import 'package:flutter_todo/components/row_register_class.dart';
 import 'package:flutter_todo/realm/app_services.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_todo/realm/schemas.dart';
@@ -31,8 +29,6 @@ class BugState extends State<Bug> {
   @override
   Widget build(BuildContext context) {
     final currentUser = Provider.of<AppServices>(context).currentUser;
-    // var config = Configuration.local([bugSchema.schema]);
-    // var realm = Realm(config);
     return Center(child: Consumer<Realm?>(builder: (context, realm, child) {
       return Sizer(builder: (context, orientation, deviceType) {
         return Scaffold(
@@ -51,9 +47,6 @@ class BugState extends State<Bug> {
                     Padding(padding: EdgeInsets.all(8)),
                     TextField(
                         style: TextStyle(fontSize: 10.sp),
-                        // minLines: null,
-                        // maxLines: null,
-                        // expands: true,
                         maxLines: 4,
                         decoration: const InputDecoration(
                             border: OutlineInputBorder(),
